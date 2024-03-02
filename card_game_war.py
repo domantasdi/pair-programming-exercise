@@ -1,4 +1,25 @@
-"""Placeholder docstring"""
+"""
+card_game_war.py
+
+Author: Domantas Didžiapetris
+Date: 2024-03-02
+
+Description:
+    This file contains the code for the card game "War" and its supporting functions, classes.
+    
+    Classes:
+        - Card: a blueprint for the card object. Holds the ranks of the cards.
+        - Deck: a blueprint for the deck object. The standard deck consists of 52 cards.
+        - Player: a blueprint for the player object.
+
+    Functions:
+        - main: invokes the module
+
+    Usage:
+        '''
+        To-Be-Discussed
+        '''
+"""
 
 class Card:
     """
@@ -6,18 +27,18 @@ class Card:
     :param rank: the rank (value) of a card.
     """
     rank = [2,
-             3,
-             4,
-             5,
-             6,
-             7,
-             8,
-             9,
-             10,
-             11,
-             12,
-             13,
-             14,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
     ]
 
     # Do I really need this?
