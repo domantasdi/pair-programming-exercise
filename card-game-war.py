@@ -1,5 +1,10 @@
 class Card:
-    value = [2,
+    """
+    A blueprint for a card object.
+    
+    param: rank – the rank (value) of a card.
+    """
+    rank = [2,
              3,
              4,
              5,
@@ -13,8 +18,10 @@ class Card:
              13,
              14,        
     ]
-    def __init__(self, value):
-        self.value = value
+
+    # Do I really need this?
+    def __init__(self, rank):
+        self.rank = rank
     
     pass
 
