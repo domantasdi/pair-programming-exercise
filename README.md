@@ -1,6 +1,14 @@
 # Pair programming exercise
 A public repo for the third sprint's hands-on exercise.
 
+## Task requirements
+- Ideally, have at least 3 pair-programming sessions with your peers;
+- Out of the three sessions, at least 1 should be spent working on my problem and 1 should be spent working on the other person's problem;
+- Try to dedicate at least an hour per session;
+- Different tasks should be split and outlined as GitHub issues;
+- Once the session starts, you should decide who goes and codes first;
+- During the session, you should be only working either on your or your peer's problem.
+
 ## Game rules
 This section outlines the main rules of the game and the losing conditions.
 
