@@ -1,10 +1,10 @@
-# pair-programming-exercise
-A public repo for the third sprint's hands-on exercise
+# Pair programming exercise
+A public repo for the third sprint's hands-on exercise.
 
-# Game rules
+## Game rules
 This section outlines the main rules of the game and the losing conditions.
 
-## Main rules
+### Main rules
 - The main objective of the game is to win all the cards;
 - Card suits and values:
     - The game is played with a standard deck of 52 cards;
@@ -18,10 +18,10 @@ This section outlines the main rules of the game and the losing conditions.
     - Both players take a card from the top of their deck and put it face-UP on the previously placed cards.
 - The war continues until a higher-ranking card wins. The winner takes all of the cards.
 
-## Losing condition
+### Losing condition
 The player with no cards in their deck loses the game.
 
-# Multi-player experience
+## Multi-player experience
 
 The game might be played by three or four players as well in the following manner:
 
