@@ -15,20 +15,17 @@ Description:
         To-Be-Discussed
         '''
 """
-from classes import Deck#, Card
+from classes import Deck, Card, Player
 
 
 def main():
     """Placeholder docstring 1"""
 
     kalade = Deck()
-    kalade.split_deck(2)
-    # player1, player2 = kalade.split_deck(2)
+    first_half_deck, second_half_deck = kalade.split_deck(2)
+    player1 = Player('name1', first_half_deck)
+    player2 = Player('name2', second_half_deck)
     kalade.show_deck()
-
-
-    # player1 = Player._
-    # player2 = Player.__
 
 
 if __name__ == "__main__":

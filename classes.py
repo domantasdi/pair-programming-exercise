@@ -15,12 +15,8 @@ Classes:
 
 import random
 
-############################################################
+from consts import SUITS, VALUES
 
-SUITS = ["Diamonds", "Clubs", "Hearts", "Spades"]
-VALUES = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-
-############################################################
 
 class Card:
     """
@@ -93,12 +89,12 @@ class Deck:
 
 class Player:
     """Placeholder docstring 1"""
-    def __init__(self, name, hand):
+    def __init__(self, name: str, hand: list[Card]) -> None:
         self.name = name
         self.hand = hand
+        self.pile = []
 
-
-    def get_name():
-        pass
+    def get_card(self):
+        return self.hand.pop()
 
 ############################################################
