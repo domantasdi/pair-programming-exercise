@@ -79,6 +79,9 @@ class Deck:
                 second_hand.append(card)
 
     def show_deck(self):
+        """
+        This method displays the cards in a human-readable format.
+        """
         for card in self.deck:
             print(card)
 
