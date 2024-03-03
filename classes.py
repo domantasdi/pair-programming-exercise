@@ -44,6 +44,7 @@ class Deck:
     def __init__(self):
         self.deck = []
         self.build_deck()
+        self.shuffle_deck()
         # self.split_deck()
 
 
@@ -69,14 +70,16 @@ class Deck:
         """
         This function splits the deck between players.
 
-        :param first_hand: cards from the first half of the deck.
-        :param second_hand: cards from the second half of the deck.
+        :param first_hand: cards for the first player.
+        :param second_hand: cards for the second player.
         """
-        first_hand = random.sample(self.deck, 26)
-        second_hand = []
-        for card in self.deck:
-            if card not in first_hand:
-                second_hand.append(card)
+        if no_of_players == 2:
+            first_hand = self.deck[:26]
+            second_hand = self.deck[26:]
+
+
+        return first_hand, second_hand
+
 
     def show_deck(self):
         """
@@ -86,15 +89,16 @@ class Deck:
             print(card)
 
 
-
 ############################################################
 
-# class Player:
-#     """Placeholder docstring 1"""
-#
-#     def __init__(self):
-#         pass
-#     def get_name():
-#         pass
+class Player:
+    """Placeholder docstring 1"""
+    def __init__(self, name, hand):
+        self.name = name
+        self.hand = hand
+
+
+    def get_name():
+        pass
 
 ############################################################
