@@ -18,12 +18,14 @@ Description:
 from classes import Deck#, Card
 
 
-kalade = Deck()
-kalade.shuffle_deck()
-kalade.show_deck()
-
 def main():
     """Placeholder docstring 1"""
+
+    kalade = Deck()
+    kalade.split_deck(2)
+    # player1, player2 = kalade.split_deck(2)
+    kalade.show_deck()
+
 
     # player1 = Player._
     # player2 = Player.__
