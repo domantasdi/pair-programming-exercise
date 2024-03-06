@@ -38,16 +38,20 @@ class Deck:
     """
     A blueprint for the deck of cards.
 
-    :param deck: an empty deck.
-    :param build_deck(): builds a deck upon initialization.
-    :param shuffle_deck(): shuffles the deck in a random order.
+    Parameters:
+        - deck: an empty deck;
+    
+    Methods:
+        - build_deck: builds a deck upon initialization;
+        - shuffle_deck: shuffles the deck in a random order;
+        - split_deck: splits the deck between players;
+        - show_deck: displays the cards in a human readable format.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.deck = []
         self.build_deck()
         self.shuffle_deck()
-        # self.split_deck()
 
     def build_deck(self) -> list:
         """
@@ -58,7 +62,7 @@ class Deck:
             for value in VALUES:
                 self.deck.append(Card(suit, value))
 
-    def shuffle_deck(self) -> list:
+    def shuffle_deck(self) -> None:
         """
         Shuffles the built deck of cards in a random order.
         """
@@ -89,31 +93,47 @@ class Player:
     """
     A blueprint for the player object.
 
-    :param name: the name of the player.
-    :param hand: the card hand the player has.
-    :param pile: the pile of cards that were set aside.
+    Parameters:
+        - name: the name of the player.
+        - hand: the card hand the player has.
+
+    Methods:
+        - get_card: removes a card from the player's hand.
     """
 
     def __init__(self, name: str, hand: list[Card]) -> None:
         self.name = name
         self.hand = hand
 
-    def get_card(self):
+    def get_card(self) -> None:
         """Removes a card from the player's hand."""
-        return self.hand.pop()
+        self.hand.pop()
 
 class Table:
     """
     A blueprint for the table object.
 
-    :param name: the name of the player.
-    :param hand: the card hand the player has.
-    :param pile: the pile of cards that were set aside.
+    Parameters:
+        - players: the list of players at the table;
+
+    Methods:
+        - add_to_pile: adds a card to the table's pile of cards;
+        - move_pile: moves the existing pile to a player's hand;
+        - clear_pile: clears the pile after moving it
     """
 
-    def __init__(self) -> None:
+    def __init__(self, players: list[Player]) -> None:
+        self.players = players
         self.pile = []
 
-    def add_to_pile(self, cards: list):
-        """Adds a card to a pile."""
-        return self.pile.append(cards)
+    def add_to_pile(self, card: Card) -> None:
+        """Adds a card to the pile."""
+        self.pile.append(card)
+    
+    def move_pile(self, players_hand: list[Card]) -> None:
+        """Extends the player's hand with the cards in the pile."""
+        players_hand.extend(self.pile)
+
+    def clear_pile(self) -> None:
+        """Clears the pile from the table"""
+        self.pile.clear()
