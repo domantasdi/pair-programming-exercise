@@ -8,9 +8,9 @@ Description:
     - This module hosts the classes necessary for the card game War.
 
 Classes:
-    - Card: a blueprint for the card object. Holds the ranks of the cards.
-    - Deck: a blueprint for the deck object. The standard deck consists of 52 cards.
-    - Player: a blueprint for the player object.
+    - Card: a blueprint for a card. Holds the ranks of the cards.
+    - Deck: a blueprint for a deck. The standard deck consists of 52 cards.
+    - Player: a blueprint for a player.
 """
 
 import random
@@ -20,7 +20,7 @@ from consts import SUITS, VALUES
 
 class Card:
     """
-    A blueprint for the card object.
+    A blueprint for the card.
 
     :param suit: the suit of a card.
     :param value: the rank (power) of a card.
@@ -36,7 +36,7 @@ class Card:
 
 class Deck:
     """
-    A blueprint for the deck of cards object.
+    A blueprint for the deck of cards.
 
     :param deck: an empty deck.
     :param build_deck(): builds a deck upon initialization.
@@ -92,14 +92,28 @@ class Player:
     :param name: the name of the player.
     :param hand: the card hand the player has.
     :param pile: the pile of cards that were set aside.
-
     """
 
     def __init__(self, name: str, hand: list[Card]) -> None:
         self.name = name
         self.hand = hand
-        self.pile = []
 
     def get_card(self):
         """Removes a card from the player's hand."""
         return self.hand.pop()
+
+class Table:
+    """
+    A blueprint for the table object.
+
+    :param name: the name of the player.
+    :param hand: the card hand the player has.
+    :param pile: the pile of cards that were set aside.
+    """
+
+    def __init__(self) -> None:
+        self.pile = []
+
+    def add_to_pile(self, cards: list):
+        """Adds a card to a pile."""
+        return self.pile.append(cards)

@@ -16,17 +16,31 @@ Description:
         '''
 """
 
-from classes import Deck, Card, Player
+from classes import Deck, Player, Table
+from functions import check_for_a_win, check_higher_rank_card
 
 
 def main():
     """Placeholder docstring 1"""
 
-    kalade = Deck()
-    first_half_deck, second_half_deck = kalade.split_deck(2)
-    player1 = Player("name1", first_half_deck)
-    player2 = Player("name2", second_half_deck)
-    kalade.show_deck()
+    deck = Deck()
+    table = Table()
+
+    first_players_hand, second_players_hand = deck.split_deck(2)
+
+    player1 = Player("name1", first_players_hand)
+    player2 = Player("name2", second_players_hand)
+
+    card1 = player1.get_card()
+    card2 = player2.get_card()
+
+    table.add_to_pile([card1, card2])
+
+    check_higher_rank_card(card1, card2)
+
+    deck.show_deck()
+
+    check_for_a_win("Jonas", player1, "Petras", player2)
 
 
 if __name__ == "__main__":
