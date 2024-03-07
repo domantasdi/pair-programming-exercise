@@ -17,7 +17,6 @@ import random
 
 from consts import SUITS, VALUES
 
-
 class Card:
     """
     A blueprint for the card.
@@ -32,7 +31,6 @@ class Card:
 
     def __str__(self) -> str:
         return f"{self.value} of {self.suit}"
-
 
 class Deck:
     """
@@ -88,7 +86,6 @@ class Deck:
         for card in self.deck:
             print(card)
 
-
 class Player:
     """
     A blueprint for the player object.
@@ -105,9 +102,9 @@ class Player:
         self.name = name
         self.hand = hand
 
-    def get_card(self) -> None:
+    def get_card(self) -> object:
         """Removes a card from the player's hand."""
-        self.hand.pop()
+        return self.hand.pop(0)
 
 class Table:
     """
@@ -120,20 +117,28 @@ class Table:
         - add_to_pile: adds a card to the table's pile of cards;
         - move_pile: moves the existing pile to a player's hand;
         - clear_pile: clears the pile after moving it
+        - show_pile: displays the cards in the pile
     """
 
     def __init__(self, players: list[Player]) -> None:
         self.players = players
         self.pile = []
 
-    def add_to_pile(self, card: Card) -> None:
+    def add_to_pile(self, card1: Card, card2: Card) -> None:
         """Adds a card to the pile."""
-        self.pile.append(card)
+        self.pile.append(card1)
+        self.pile.append(card2)
+        print(f"{str(card1)} vs {str(card2)}")
     
     def move_pile(self, players_hand: list[Card]) -> None:
-        """Extends the player's hand with the cards in the pile."""
+        """Adds cards from the pile to the player's hand."""
         players_hand.extend(self.pile)
+        self.pile.clear()
 
     def clear_pile(self) -> None:
         """Clears the pile from the table"""
         self.pile.clear()
+
+    def show_pile(self) -> list:
+        for card in self.pile:
+            print(str(card))

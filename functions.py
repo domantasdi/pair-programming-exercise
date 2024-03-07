@@ -13,7 +13,7 @@ Functions:
 
 from classes import Table
 
-table = Table()
+#table = Table()
 
 def check_for_a_win(first_name: str, first_hand: list, second_name: str, second_hand: list):
     """Checks which player won the game."""
