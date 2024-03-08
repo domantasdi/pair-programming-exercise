@@ -17,7 +17,7 @@ Description:
 """
 
 from classes import Deck, Player, Table
-#from functions import check_for_a_win, check_higher_rank_card
+from functions import draw_cards, compare_cards
 
 
 def main():
@@ -29,22 +29,17 @@ def main():
 
     player1 = Player("name1", first_players_hand)
     player2 = Player("name2", second_players_hand)
+
     table = Table([player1, player2])
 
-
     while len(first_players_hand) != 0 or len(second_players_hand) != 0:
-        card1 = player1.get_card()
-        card2 = player2.get_card()
-        table.add_to_pile(card1, card2)
+        
+        card1, card2 = draw_cards(table, player1, player2)
         
         while getattr(card2, "value") == getattr(card1, "value"):
             print(f"War!")
-            card1 = player1.get_card()
-            card2 = player2.get_card()
-            table.add_to_pile(card1, card2)
-            card1 = player1.get_card()
-            card2 = player2.get_card()
-            table.add_to_pile(card1, card2)
+            for _ in range(1,3):
+                card1, card2 = draw_cards(table, player1, player2)
             compare_cards(table, first_players_hand, card1, second_players_hand, card2)
         else:
             compare_cards(table, first_players_hand, card1, second_players_hand, card2)
@@ -53,11 +48,6 @@ def main():
         #table.show_pile()
 
 
-def compare_cards(table: object, first_players_hand: object, card1: object, second_players_hand: object, card2: object):
-    if getattr(card1, "value") > getattr(card2, "value"):
-        table.move_pile(first_players_hand)
-    elif getattr(card1, "value") < getattr(card2, "value"):
-        table.move_pile(second_players_hand)
 
 
 if __name__ == "__main__":
