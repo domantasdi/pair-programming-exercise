@@ -30,7 +30,7 @@ class Card:
         self.value = value
 
     def __str__(self) -> str:
-        return f"{self.value} of {self.suit}"
+        return f"{self.value} – {self.suit}"
 
 class Deck:
     """
@@ -128,8 +128,14 @@ class Table:
         """Adds a card to the pile."""
         self.pile.append(card1)
         self.pile.append(card2)
-        print(f"{str(card1)} vs {str(card2)}")
-    
+        print(f"{str(card1)} \t vs \t {str(card2)}")
+
+    def add_to_pile_face_down(self, card1: Card, card2: Card) -> None:
+        """Adds a card to the pile."""
+        self.pile.append(card1)
+        self.pile.append(card2)
+        print("– \t\t vs \t –")
+
     def move_pile(self, players_hand: list[Card]) -> None:
         """Adds cards from the pile to the player's hand."""
         players_hand.extend(self.pile)
@@ -140,5 +146,6 @@ class Table:
         self.pile.clear()
 
     def show_pile(self) -> list:
+        """A helper method that displays the cards in the pile."""
         for card in self.pile:
             print(str(card))

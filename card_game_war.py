@@ -16,38 +16,50 @@ Description:
         '''
 """
 
+import time
 from classes import Deck, Player, Table
-from functions import draw_cards, compare_cards
+from functions import (
+    draw_cards,
+    draw_cards_face_down,
+    compare_cards,
+    check_win_condition,
+)
 
 
 def main():
-    """Placeholder docstring 1"""
+    """Main function that runs the game."""
 
     deck = Deck()
 
     first_players_hand, second_players_hand = deck.split_deck(2)
 
-    player1 = Player("name1", first_players_hand)
-    player2 = Player("name2", second_players_hand)
+    player1 = Player("Tom", first_players_hand)
+    player2 = Player("Jerry", second_players_hand)
 
     table = Table([player1, player2])
 
     while len(first_players_hand) != 0 or len(second_players_hand) != 0:
-        
-        card1, card2 = draw_cards(table, player1, player2)
-        
-        while getattr(card2, "value") == getattr(card1, "value"):
-            print(f"War!")
-            for _ in range(1,3):
-                card1, card2 = draw_cards(table, player1, player2)
+        time.sleep(0.001)
+
+        try:
+            card1, card2 = draw_cards(table, player1, player2)
+        except IndexError:
+            break
+
+        if getattr(card2, "value") == getattr(card1, "value"):
+            print("War!")
+            for _ in range(1, 2):
+                try:
+                    card1, card2 = draw_cards_face_down(table, player1, player2)
+                except IndexError:
+                    break
             compare_cards(table, first_players_hand, card1, second_players_hand, card2)
         else:
             compare_cards(table, first_players_hand, card1, second_players_hand, card2)
-        
-        #table.compare_cards(card1, card2)
-        #table.show_pile()
 
-
+        check_win_condition(
+            first_players_hand, player1.name, second_players_hand, player2.name
+        )
 
 
 if __name__ == "__main__":

@@ -12,33 +12,51 @@ Functions:
 """
 
 
-def draw_cards(table: object, player1: object, player2: object):
+def draw_cards(
+    table: object,
+    player1: object,
+    player2: object
+    ) -> tuple:
+    """Draws two cards and adds them to the pile"""
     card1 = player1.get_card()
     card2 = player2.get_card()
     table.add_to_pile(card1, card2)
     return (card1, card2)
 
-def compare_cards(table: object, first_players_hand: object, card1: object, second_players_hand: object, card2: object):
+def draw_cards_face_down(
+    table: object,
+    player1: object,
+    player2: object
+    ) -> tuple:
+    """Draws two cards and adds them to the pile"""
+    card1 = player1.get_card()
+    card2 = player2.get_card()
+    table.add_to_pile_face_down(card1, card2)
+    return (card1, card2)
+
+
+def compare_cards(
+    table: object,
+    first_players_hand: object,
+    card1: object,
+    second_players_hand: object,
+    card2: object,
+) -> None:
+    """Compares cards and moves the pile to the player's hand."""
     if getattr(card1, "value") > getattr(card2, "value"):
         table.move_pile(first_players_hand)
     elif getattr(card1, "value") < getattr(card2, "value"):
         table.move_pile(second_players_hand)
 
 
-def check_for_a_win(first_name: str, first_hand: list, second_name: str, second_hand: list):
-    """Checks which player won the game."""
-
-    if len(first_hand) == 0:
-        winner = second_name
-    elif len(second_hand) == 0:
-        winner = first_name
-
-    return f"{winner} is the winner!"
-
-
-#def check_higher_rank_card(card1: object, card2: object):
-#    """Checks the card's rank."""
-#    war = False
-#
-#    if card1["value"] > card2["value"]:
-#        pass
+def check_win_condition(
+        first_players_hand: list,
+        first_name: str,
+        second_players_hand: list,
+        second_name: str,
+) -> str:
+    """Checks who won the game."""
+    if len(first_players_hand) == 0:
+        print(f"{second_name} won!")
+    elif len(second_players_hand) == 0:
+        print(f"{first_name} won!")
