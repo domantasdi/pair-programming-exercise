@@ -66,16 +66,15 @@ class Deck:
         """
         random.shuffle(self.deck)
 
-    def split_deck(self, no_of_players=2) -> list:
+    def split_deck(self) -> list:
         """
         Splits the deck between players.
 
         :param first_hand: cards for the first player.
         :param second_hand: cards for the second player.
         """
-        if no_of_players == 2:
-            first_hand = self.deck[:26]
-            second_hand = self.deck[26:]
+        first_hand = self.deck[:26]
+        second_hand = self.deck[26:]
 
         return first_hand, second_hand
 
