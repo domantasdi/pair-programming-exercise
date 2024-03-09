@@ -141,10 +141,6 @@ class Table:
         players_hand.extend(self.pile)
         self.pile.clear()
 
-    def clear_pile(self) -> None:
-        """Clears the pile from the table"""
-        self.pile.clear()
-
     def show_pile(self) -> list:
         """A helper method that displays the cards in the pile."""
         for card in self.pile:

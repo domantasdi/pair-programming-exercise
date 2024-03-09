@@ -39,7 +39,7 @@ def main():
     table = Table([player1, player2])
 
     while len(first_players_hand) != 0 or len(second_players_hand) != 0:
-        time.sleep(0.001)
+        #time.sleep(0.001)
 
         try:
             card1, card2 = draw_cards(table, player1, player2)
@@ -48,16 +48,13 @@ def main():
 
         while getattr(card2, "value") == getattr(card1, "value"):
             print("War!")
-            for _ in range(1, 2):
-                try:
-                    card1, card2 = draw_cards_face_down(table, player1, player2)
-                except IndexError:
-                    break
             try:
+                for _ in range(1, 2):
+                    card1, card2 = draw_cards_face_down(table, player1, player2)
+                    break
                 card1, card2 = draw_cards(table, player1, player2)
             except IndexError:
                 break
-            compare_cards(table, first_players_hand, card1, second_players_hand, card2)
         compare_cards(table, first_players_hand, card1, second_players_hand, card2)
 
         check_win_condition(first_players_hand, player1.name, second_players_hand, player2.name)
