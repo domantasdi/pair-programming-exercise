@@ -43,10 +43,11 @@ def main():
     table = Table([player1, player2])
 
     # Here I run a loop, as long as one of the players' doesn't have any cards
-    # while True:
-    while len(first_players_hand) != 0 or len(second_players_hand) != 0:
+    while True:
         # Here I add a sleep timer so the program doesn't run too fast
         time.sleep(0.001)
+        if check_win_condition(first_players_hand, player1.name, second_players_hand, player2.name):
+            break
 
         # Here I try to draw two cards, except there are no more cards
         try:
@@ -65,7 +66,6 @@ def main():
                 break
         compare_cards(table, first_players_hand, card1, second_players_hand, card2)
 
-    check_win_condition(first_players_hand, player1.name, second_players_hand, player2.name)
 
 
 if __name__ == "__main__":
