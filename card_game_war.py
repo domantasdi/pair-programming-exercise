@@ -46,20 +46,21 @@ def main():
         except IndexError:
             break
 
-        if getattr(card2, "value") == getattr(card1, "value"):
+        while getattr(card2, "value") == getattr(card1, "value"):
             print("War!")
             for _ in range(1, 2):
                 try:
                     card1, card2 = draw_cards_face_down(table, player1, player2)
                 except IndexError:
                     break
+            try:
+                card1, card2 = draw_cards(table, player1, player2)
+            except IndexError:
+                break
             compare_cards(table, first_players_hand, card1, second_players_hand, card2)
-        else:
-            compare_cards(table, first_players_hand, card1, second_players_hand, card2)
+        compare_cards(table, first_players_hand, card1, second_players_hand, card2)
 
-        check_win_condition(
-            first_players_hand, player1.name, second_players_hand, player2.name
-        )
+        check_win_condition(first_players_hand, player1.name, second_players_hand, player2.name)
 
 
 if __name__ == "__main__":
