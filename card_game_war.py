@@ -16,7 +16,7 @@ Description:
         '''
 """
 
-import time
+import sys
 from classes import Deck, Player, Table
 from functions import (
     draw_cards,
@@ -33,11 +33,15 @@ def main():
     deck = Deck()
 
     # Here I split the deck into two hands, for two players
-    first_players_hand, second_players_hand = deck.split_deck(2)
+    first_players_hand, second_players_hand = deck.split_deck()
 
     # Here I initialize the two players
-    player1 = Player("Tom", first_players_hand)
-    player2 = Player("Jerry", second_players_hand)
+
+    p1_name = str(sys.argv[1])
+    p2_name = str(sys.argv[2])
+
+    player1 = Player(p1_name, first_players_hand)
+    player2 = Player(p2_name, second_players_hand)
 
     # Here I initialize the table
     table = Table([player1, player2])
@@ -45,7 +49,6 @@ def main():
     # Here I run a loop, as long as one of the players' doesn't have any cards
     while True:
         # Here I add a sleep timer so the program doesn't run too fast
-        time.sleep(0.001)
         if check_win_condition(first_players_hand, player1.name, second_players_hand, player2.name):
             break
 
