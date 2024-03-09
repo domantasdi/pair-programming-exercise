@@ -57,7 +57,7 @@ def main():
                 break
         compare_cards(table, first_players_hand, card1, second_players_hand, card2)
 
-        check_win_condition(first_players_hand, player1.name, second_players_hand, player2.name)
+    check_win_condition(first_players_hand, player1.name, second_players_hand, player2.name)
 
 
 if __name__ == "__main__":
