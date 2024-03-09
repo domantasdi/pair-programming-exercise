@@ -29,18 +29,26 @@ from functions import (
 def main():
     """Main function that runs the game."""
 
+    # Here I initialize the deck as an object
     deck = Deck()
 
+    # Here I split the deck into two hands, for two players
     first_players_hand, second_players_hand = deck.split_deck(2)
 
+    # Here I initialize the two players
     player1 = Player("Tom", first_players_hand)
     player2 = Player("Jerry", second_players_hand)
 
+    # Here I initialize the table
     table = Table([player1, player2])
 
+    # Here I run a loop, as long as one of the players' doesn't have any cards
+    # while True:
     while len(first_players_hand) != 0 or len(second_players_hand) != 0:
+        # Here I add a sleep timer so the program doesn't run too fast
         time.sleep(0.001)
 
+        # Here I try to draw two cards, except there are no more cards
         try:
             card1, card2 = draw_cards(table, player1, player2)
         except IndexError:

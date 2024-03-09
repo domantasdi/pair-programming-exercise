@@ -12,22 +12,15 @@ Functions:
 """
 
 
-def draw_cards(
-    table: object,
-    player1: object,
-    player2: object
-    ) -> tuple:
+def draw_cards(table: object, player1: object, player2: object) -> tuple:
     """Draws two cards and adds them to the pile"""
     card1 = player1.get_card()
     card2 = player2.get_card()
     table.add_to_pile(card1, card2)
     return (card1, card2)
 
-def draw_cards_face_down(
-    table: object,
-    player1: object,
-    player2: object
-    ) -> tuple:
+
+def draw_cards_face_down(table: object, player1: object, player2: object) -> tuple:
     """Draws two cards and adds them to the pile"""
     card1 = player1.get_card()
     card2 = player2.get_card()
@@ -50,10 +43,10 @@ def compare_cards(
 
 
 def check_win_condition(
-        first_players_hand: list,
-        first_name: str,
-        second_players_hand: list,
-        second_name: str,
+    first_players_hand: list,
+    first_name: str,
+    second_players_hand: list,
+    second_name: str,
 ) -> str:
     """Checks who won the game."""
     if len(first_players_hand) == 0:
