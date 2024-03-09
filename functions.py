@@ -47,9 +47,13 @@ def check_win_condition(
     first_name: str,
     second_players_hand: list,
     second_name: str,
-) -> str:
+) -> bool:
     """Checks who won the game."""
     if len(first_players_hand) == 0:
         print(f"{second_name} won!")
+        return True
     elif len(second_players_hand) == 0:
         print(f"{first_name} won!")
+        return True
+    else:
+        return False
