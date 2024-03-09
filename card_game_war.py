@@ -37,8 +37,11 @@ def main():
 
     # Here I initialize the two players
 
-    p1_name = str(sys.argv[1])
-    p2_name = str(sys.argv[2])
+    try:
+        p1_name = str(sys.argv[1])
+        p2_name = str(sys.argv[2])
+    except IndexError:
+        sys.exit("Make sure to include two player names as CLI arguments")
 
     player1 = Player(p1_name, first_players_hand)
     player2 = Player(p2_name, second_players_hand)
