@@ -39,7 +39,7 @@ def main():
     table = Table([player1, player2])
 
     while len(first_players_hand) != 0 or len(second_players_hand) != 0:
-        #time.sleep(0.001)
+        time.sleep(0.001)
 
         try:
             card1, card2 = draw_cards(table, player1, player2)
