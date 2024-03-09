@@ -1,6 +1,10 @@
 # Pair programming exercise
 A public repo for the third sprint's hands-on exercise.
 
+## How the game works
+Run the game by typing `python card_game_war.py name1 name2` into the terminal. Input the two player names as `name1` and `name2`.
+It is entirely possible that the game might run indefinitely. If that happens, feel free to interrupt it with `Ctrl+C`.
+
 ## Task requirements
 - Ideally, have at least 3 pair-programming sessions with your peers;
 - Out of the three sessions, at least 1 should be spent working on my problem and 1 should be spent working on the other person's problem;
